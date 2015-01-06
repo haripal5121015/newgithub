@@ -1,0 +1,43 @@
+<html ng-app="ListFriend">
+<head>
+	<title>
+		
+		My Friends Info
+	</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="newfilecss.css">
+
+
+	
+
+</head>
+<body>
+<div id="div1">
+<div ng-controller="FriendController">
+
+
+	<form name="infoform" ng-submit="add()" >
+		
+		<input type="text" ng-model="name" placeholder="name" required/><br/>
+		<input type="text" ng-model="college" placeholder="college" required/><br/>
+		<input type="text" ng-model="rollno" placeholder="rollno" required/><br/>
+		<input type="text" ng-model="mobile" placeholder="mobile" required/><br/>
+		<input type="text" ng-model="city" placeholder="city" required/><br/>
+		<button ng-disabled="infoform.$invalid" id="addbtn"> Add Friend</button>
+		
+		
+
+	</form>
+	<ul ng-repeat="frd in Friends" bullet="square">
+       <h1> <li >{{frd.name}} </li></h1>
+		<li> {{frd.college}}</li>
+		<li>{{frd.rollno}}</li>
+		<li>{{frd.mobile}}</li>
+		<li>{{frd.city}}</li>
+	</ul>
+</div>
+</div>
+<script type="text/javascript" src="angjsfile.js"></script>
+	
+</body>
+</html>

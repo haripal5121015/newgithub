@@ -1,0 +1,41 @@
+<html ng-app="myDemo">
+<head>
+	<title>
+		
+		My Friends Info
+	</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+</head>
+<body>
+<div id="div1">
+<div ng-controller="list">
+
+
+	<form name="form1" ng-submit="add()" >
+		
+		<input type="text" ng-model="name" placeholder="name" required/><br/>
+		<p>{{name}}</p>
+		<button  id="addbtn"> Add list</button>
+		</form>
+	
+</div>
+</div>
+<script>
+	angular.module("myDemo",[]).
+	controller("list",["$scope",function($scope)
+	{
+		$scope.array=[
+		{"name":"haripal"}
+		];
+		$scope.add=function(){
+			console.log($scope.name)
+			
+		}
+
+	}])
+
+
+</script>
+	
+</body>
+</html>

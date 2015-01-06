@@ -1,0 +1,52 @@
+<html ng-app="ListFriend">
+<head>
+	<title>
+		
+		My Friends Info
+	</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+	
+
+</head>
+<body>
+<div ng-controller="FriendController">
+
+
+	<form name="infoform" ng-submit="add()" >
+		
+		<input type="text" ng-model="name" placeholder="name" required/>
+			<input type="text" ng-model="college" placeholder="college" required/>
+		<input type="text" ng-model="rollno" placeholder="rollno" required/>
+		<input type="text" ng-model="mobile" placeholder="mobile" required/>
+		<input type="text" ng-model="city" placeholder="city" required/>
+		<button ng-disabled="infoform.$invalid"> Add Friend</button>
+		
+		
+
+	</form>
+	<ul>
+		<li ng-repeat="frd in Friends">
+			{{frd.name}}--
+			{{frd.college}}--
+			{{frd.rollno}}--
+			{{frd.mobile}}--
+			{{frd.city}}
+		</li>
+	</ul>
+</div>
+<script>
+	angular.module("ListFriend",[]).
+	controller("FriendController",["$scope",function($scope)
+	{
+		$scope.Friends=[
+		{"name":"haripal","college":"NIT","rollno":"5121015","mobile":"8816086443","city":"delhi"}
+		];
+		$scope.add=function(){
+			$scope.Friends.push({"name":$scope.name,"college":$scope.college,"rollno":$scope.rollno,"mobile":$scope.mobile,"city":$scope.city})
+		}
+
+	}])
+</script>
+	
+</body>
+</html>
